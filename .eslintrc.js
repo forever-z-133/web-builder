@@ -4,6 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  parser: "babel-eslint",
   extends: ['plugin:react/recommended'],
   parserOptions: {
     "sourceType": "module"
@@ -19,7 +20,9 @@ module.exports = {
     // 'complexity': ['error', 20],
     // 'arrow-parens': [2, 'as-needed'],
     // 'no-nested-ternary': 0,
-    'react/prop-types': 1,
+    "react/prop-types": [1, {
+      "ignore": ["className", "children", "location", "params", "history"]
+    }],
     // 'react/display-name': 0,
     'linebreak-style': 'off', // 兼容 windows 的换行与 mac 不同
   },

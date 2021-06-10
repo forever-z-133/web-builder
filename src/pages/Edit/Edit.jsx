@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import EditHeader from './EditHeader';
+import EditLeftSide from './EditLeftSide';
+import EditMainArea from './EditMainArea';
+import EditRightSide from './EditRightSide';
 
 class Edit extends Component {
   render() {
     return (
       <>
-        <p>编辑页</p>
+        <EditHeader />
+        <EditLeftSide />
+        <EditMainArea />
+        <EditRightSide />
       </>
     );
   }

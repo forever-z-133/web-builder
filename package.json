@@ -1,7 +1,6 @@
 {
   "name": "forever-builder",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -27,6 +26,7 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "common-scss-mixin": "^1.0.15",
     "react-app-rewired": "^2.1.8",
     "sass": "^1.34.1"
