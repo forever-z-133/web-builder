@@ -5,25 +5,32 @@ module.exports = {
     es6: true,
   },
   parser: "babel-eslint",
-  extends: ['plugin:react/recommended'],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   parserOptions: {
-    "sourceType": "module"
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   rules: {
-    // "indent": ["error", 2],
-    // 'no-plusplus': 1,
-    // 'no-unused-vars': 0,
-    // 'camelcase': 0,
-    // 'no-underscore-dangle': 'off', // 允许 _var 命名
-    // 'prefer-destructuring': ['error', { array: false }], // 允许 arr[0]
-    // 'no-param-reassign': 'off', // 允许修改形参的值
-    // 'complexity': ['error', 20],
-    // 'arrow-parens': [2, 'as-needed'],
-    // 'no-nested-ternary': 0,
     "react/prop-types": [1, {
-      "ignore": ["className", "children", "location", "params", "history"]
+      "ignore": ["className", "style", "children", "history"]
     }],
-    // 'react/display-name': 0,
-    'linebreak-style': 'off', // 兼容 windows 的换行与 mac 不同
+    // "linebreak-style": "off", // 兼容 windows 的换行与 mac 不同
+    // "react/display-name": 0,
+    // "indent": ["error", 2],
+    // "no-plusplus": 1,
+    // "no-unused-vars": 0,
+    // "camelcase": 0,
+    // "no-underscore-dangle": "off", // 允许 _var 命名
+    // "prefer-destructuring": ["error", { array: false }], // 允许 arr[0]
+    // "no-param-reassign": "off", // 允许修改形参的值
+    // "complexity": ["error", 20],
+    // "arrow-parens": [2, "as-needed"],
+    // "no-nested-ternary": 0,
   },
 };
