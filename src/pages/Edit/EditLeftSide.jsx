@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { EditContext } from './utils/EditContext';
 
 class EditLeftSide extends Component {
-  widgetsConfig = [
-    {}
-  ];
+  static contextType = EditContext;
 
   render() {
     return (
