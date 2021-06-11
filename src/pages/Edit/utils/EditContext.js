@@ -52,6 +52,6 @@ export class EditConsumer extends Component {
           return this.props.children(context);
         }}
       </EditContext.Consumer>
-    )
+    );
   }
 }

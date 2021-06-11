@@ -1,5 +1,6 @@
 @import "common-scss-mixin";
 
+@function px($px) { @return $px * 1px; }
 $flex-grow-children: '.grow';
 $flex-shrink-children: '';
 $flex-column-grow-children: '.item', '.col';

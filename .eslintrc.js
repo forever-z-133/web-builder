@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
+    node: true
   },
   parser: "babel-eslint",
   extends: [
@@ -17,6 +18,7 @@ module.exports = {
     }
   },
   rules: {
+    "semi": 2,
     "react/prop-types": [1, {
       "ignore": ["className", "style", "children", "history"]
     }],
