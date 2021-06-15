@@ -1,3 +1,29 @@
+import { Frame } from 'scenejs';
+
+/**
+ * 设置元素 style，常用于拖拽等不改动 state 的渲染场景
+ */
+export function css(dom, _styles) {
+  const styles = {};
+  Object.keys(_styles).forEach(k => {
+    const key = k.replace(/[A-Z]/g, '$0');
+    styles[key] = _styles[k];
+  });
+  const frame = new Frame(styles);
+  console.log(frame.toCSS());
+  dom.style.cssText += frame.toCSS();
+}
+
+/**
+ * 合并 className
+ */
+export * as classnames from 'classnames';
+
+/**
+ * 外放的 lodash 函数
+ */
+export { merge, cloneDeep } from 'lodash';
+
 /**
  * 判断数据类型
  */
@@ -44,10 +70,13 @@ export function addZero(num, len = 2) {
 /**
  * 随机数
  */
-export function random(n1, n2 = 0) {
+export function random(n1 = 1, n2 = 0) {
   const min = Math.min(n1, n2);
   const max = Math.max(n1, n2);
   return min + Math.random() * (max - min);
+}
+export function randomInt(n1 = 1, n2 = 0) {
+  return random(n1, n2) >> 0;
 }
 
 /**

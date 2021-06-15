@@ -1,0 +1,17 @@
+.ui-image {
+  position: relative;
+  min-height: px(50);
+
+  &.is-ratio > .img {
+    @include fit-cover();
+  }
+  
+  & > .placeholder {
+    @include cover();
+    @include flex-center();
+  }
+
+  & > .img-temp {
+    @include pos-hide();
+  }
+}

@@ -1,0 +1,13 @@
+.ui-icon {
+  width: 1em;
+  height: 1em;
+  font-size: $fsize;
+  @include image-ratio(1);
+
+  &.sm {
+    font-size: $fsize * 0.8;
+  }
+  &.lg {
+    font-size: $fsize * 1.2;
+  }
+}
