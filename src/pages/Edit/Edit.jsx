@@ -4,6 +4,7 @@ import EditLeftSide from './EditLeftSide';
 import EditMainArea from './EditMainArea';
 import EditRightSide from './EditRightSide';
 import { EditProvider } from './utils/EditContext';
+import './Edit.scss';
 
 class Edit extends Component {
   render() {

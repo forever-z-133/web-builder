@@ -10,6 +10,11 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   parserOptions: {
     "ecmaVersion": 12,
     "sourceType": "module",
@@ -19,12 +24,18 @@ module.exports = {
   },
   rules: {
     "semi": 2,
+    // "no-param-reassign": 0,
+    // "complexity": [2, 20],
+    "arrow-parens": [2, "as-needed"],
+    // "no-nested-ternary": 0,
+    // "no-underscore-dangle": 0,
+    // "no-restricted-properties": 0,
     "react/prop-types": [1, {
-      "ignore": ["className", "style", "children", "history"]
+      "ignore": ["className", "ref", "style", "children", "history"]
     }],
-    // "linebreak-style": "off", // 兼容 windows 的换行与 mac 不同
+    "linebreak-style": 0, // 兼容 windows 的换行与 mac 不同
+    "indent": [2, 2, { "SwitchCase": 1 }],
     // "react/display-name": 0,
-    // "indent": ["error", 2],
     // "no-plusplus": 1,
     // "no-unused-vars": 0,
     // "camelcase": 0,

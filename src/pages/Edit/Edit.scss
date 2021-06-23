@@ -4,3 +4,13 @@
   width: px(380);
   background-color: #fff;
 }
+.box {
+  @include rect-box(100px);
+  background: pink;
+  &.active {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+  }
+}

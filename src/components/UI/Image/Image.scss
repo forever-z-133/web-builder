@@ -2,7 +2,8 @@
   position: relative;
   min-height: px(50);
 
-  &.is-ratio > .img {
+  &.is-ratio > .img,
+  &.is-ratio > .img-temp {
     @include fit-cover();
   }
   
