@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Image, Icon, FlipTransition } from '@/components/UI';
 import { EditContext } from './utils/EditContext';
-import { classnames, randomInt } from '../../utils/utils';
+import { classnames, randomInt } from '@/utils/utils';
+import Render from '@/components/Editor/Render/Render';
 
 class EditLeftSide extends Component {
   static contextType = EditContext;
@@ -25,6 +26,13 @@ class EditLeftSide extends Component {
     this.setState({ active: !this.state.active });
   };
 
+  onClick4 = () => {
+    const { activeElement } = this.context;
+    if (!activeElement) return;
+    activeElement.css.fontSize = `${randomInt(10, 20)}px`;
+    this.context.setActiveElement(activeElement);
+  }
+
   render() {
     return (
       <div className="edit-left-side">
@@ -32,11 +40,13 @@ class EditLeftSide extends Component {
         <button onClick={this.onClick}>点击</button>
         <button onClick={this.onClick2}>点击</button>
         <button onClick={this.onClick3}>点击</button>
+        <button onClick={this.onClick4}>点击</button>
         <FlipTransition>
           <div className={classnames('box', { 'active': this.state.active })}></div>
         </FlipTransition>
         <Image src={this.state.src} ratio={this.state.ratio}></Image>
         <Icon src="http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg" />
+        <Render layout={this.context.layout} />
       </div>
     );
   }

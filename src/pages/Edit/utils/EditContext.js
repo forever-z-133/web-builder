@@ -1,16 +1,16 @@
 import React, { Component, createContext } from "react";
 
-export const EditContext = createContext({
-  layout: [],
-  setLayout: () => { },
-  activeElement: null,
-  setActiveElement: () => { },
-});
+export const EditContext = createContext({});
 
 export class EditProvider extends Component {
   state = {
-    layout: [],
+    layout: [
+      { id: 'x1', type: 'text', content: 'xxxxxxx', css: { color: 'green' } },
+      { id: 'x2', type: 'text', content: 'yyyyyyy', css: { color: 'red' } }
+    ],
     activeElement: null,
+    styleRenderType: 'inline',
+    mode: 'edit',
   };
 
   // 当新增或排序时调用，刷新整页
@@ -22,21 +22,27 @@ export class EditProvider extends Component {
 
   // 当修改时调用，刷新单个数据
   setActiveElement = (element, callback) => {
-    const { activeElement } = this.context;
+    const { activeElement } = this.state;
     let state = {};
     if (element !== activeElement) {
-      state = { activeElement };
+      state = { activeElement: element };
     }
     this.setState(state, () => {
       typeof callback === 'function' && callback();
     });
   };
 
+  setStyleRenderType = (styleRenderType, callback) => {
+    this.setState({ styleRenderType }, () => {
+      typeof callback === 'function' && callback();
+    });
+  }
+
   render() {
-    const { layout, activeElement } = this.state;
-    const { setLayout, setActiveElement } = this;
+    const { mode, layout, activeElement, styleRenderType } = this.state;
+    const { setLayout, setActiveElement, setStyleRenderType } = this;
     return (
-      <EditContext.Provider value={{ layout, setLayout, activeElement, setActiveElement }}>
+      <EditContext.Provider value={{ mode, layout, setLayout, activeElement, setActiveElement, styleRenderType, setStyleRenderType }}>
         {this.props.children}
       </EditContext.Provider>
     );

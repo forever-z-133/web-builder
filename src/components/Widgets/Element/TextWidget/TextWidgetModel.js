@@ -8,7 +8,7 @@ export function init(data = {}) {
     name: '文本',
     content: '请输入文本',
     props: {},
-    css: {}
+    css: {},
   };
   return merge(data, defaultData);
 }

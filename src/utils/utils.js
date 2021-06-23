@@ -10,7 +10,6 @@ export function css(dom, _styles) {
     styles[key] = _styles[k];
   });
   const frame = new Frame(styles);
-  console.log(frame.toCSS());
   dom.style.cssText += frame.toCSS();
 }
 
@@ -33,6 +32,16 @@ export function typeOf(obj) {
 }
 export function isType(obj, type) {
   return typeOf(obj) === type;
+}
+
+/**
+ * 驼峰或连字符
+ */
+export function hyphenate(str) {
+  return str.replace(/\B([A-Z])/g, '-$1').toLowerCase();
+}
+export function camelize(str) {
+  return str.toLowerCase().replace(/-(\w)/g, (_, s) => (s ? s.toUpperCase() : ''));
 }
 
 /**

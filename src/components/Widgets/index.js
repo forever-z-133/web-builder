@@ -1,2 +1,1 @@
-export { default as Text } from './Element/Text/Text';
-export { default as Icon } from './Icon/Icon';
+export { default as text } from './Element/TextWidget/TextWidget';

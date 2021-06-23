@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { LoadingOutlined, WarningOutlined } from '@/components/UI/Icon/Icon';
+import { LoadingOutlined, WarningOutlined } from '../Icon/Icon';
 import { classnames } from '@/utils/utils';
 import './Image.scss';
 
