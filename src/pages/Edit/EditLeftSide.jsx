@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Image, Icon, FlipTransition } from '@/components/UI';
+import { Image, Icon, FlipTransition, VisibleTransition } from '@/components/UI';
 import { EditContext } from './utils/EditContext';
 import { classnames, randomInt } from '@/utils/utils';
 import Render from '@/components/Editor/Render/Render';
+import VisibleTransition2 from '@/components/UI/VisibleTransition/VisibleTransition2';
 
 class EditLeftSide extends Component {
   static contextType = EditContext;
 
-  state = { src: '', ratio: 1 / 2, active: false };
+  state = { src: '', ratio: 1 / 2, active: false, visible: false };
 
   onClick = () => {
     const arr = [
@@ -47,6 +48,13 @@ class EditLeftSide extends Component {
         <Image src={this.state.src} ratio={this.state.ratio}></Image>
         <Icon src="http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg" />
         <Render layout={this.context.layout} />
+        <button onClick={() => this.setState({ visible: !this.state.visible })}>显示</button>
+        <VisibleTransition visible={this.state.visible}>
+          <p>我是通过 style 做的动画</p>
+        </VisibleTransition>
+        <VisibleTransition2 visible={this.state.visible}>
+          <p>我是通过 class 做的动画</p>
+        </VisibleTransition2>
       </div>
     );
   }

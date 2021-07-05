@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { sleep } from '@/utils/utils';
+import { classnames, sleep } from '@/utils/utils';
 
-class VisibleTransition extends Component {
-  defaultAnimation = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-
+class VisibleTransition2 extends Component {
   state = {
-    style: null,
+    className: '',
     needAnimate: false,
     lastVisible: false,
   };
-
+  
   timer = null;
 
   static getDerivedStateFromProps(props, state) {
@@ -36,61 +29,45 @@ class VisibleTransition extends Component {
       this.triggerAnimtion(nextProps);
       return true;
     }
-    if (this.state.style !== nextState.style) {
+    if (this.state.className !== nextState.className) {
       return true;
     }
     return false;
   }
 
   async triggerAnimtion(props) {
-    const { visible, duration = 500, enter, leave } = props;
-    const { entering: e1, entered: e2, exiting: e3, exited: e4 } = this.defaultAnimation;
-
+    const { visible, duration = 500 } = props;
     clearTimeout(this.timer);
-
     if (visible) {
       this.setState({ needAnimate: false });
-
-      const exited = leave ? leave : (e4 || e3);
-      this.setState({ style: exited });
-
+      this.setState({ className: 'exited' });
       this.timer = await sleep(0);
-
-      const entering = enter ? enter : e1;
-      entering.transition = `all ${duration}ms`;
-      this.setState({ style: entering, needAnimate: false });
-
+      this.setState({ className: 'entering' });
       this.timer = await sleep(duration);
-
-      const entered = enter ? enter : (e2 || e1);
-      this.setState({ style: entered });
+      this.setState({ className: 'entered' });
     } else {
       this.setState({ needAnimate: false });
-
-      const exiting = leave ? leave : e3;
-      exiting.transition = `all ${duration}ms`;
-      this.setState({ style: exiting, needAnimate: false });
-
+      this.setState({ className: 'exiting' });
       this.timer = await sleep(duration);
-
-      this.setState({ style: null });
+      this.setState({ className: '' });
     }
   }
 
   render() {
-    const { style } = this.state;
-    const { style: originStyle } = this.props;
-    if (style === null) return null;
+    const { className } = this.state;
+    const { className: originClassName } = this.props;
+    console.log(className);
+    if (!className) return null;
     return React.cloneElement(React.Children.only(this.props.children), {
-      style: { ...originStyle, ...style },
+      className: classnames(originClassName, className),
     });
   }
 }
-VisibleTransition.propTypes = {
+VisibleTransition2.propTypes = {
   visible: PropTypes.bool,
   enter: PropTypes.object,
   leave: PropTypes.object,
   duration: PropTypes.number,
   delay: PropTypes.number,
 };
-export default VisibleTransition;
+export default VisibleTransition2;

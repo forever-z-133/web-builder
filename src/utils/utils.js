@@ -294,3 +294,11 @@ export function removeLocal(key) {
 export function clearLocal() {
   return LocalStore('clear');
 }
+
+export function sleep(delay) {
+  return new Promise(resolve => {
+    const timer = setTimeout(() => {
+      resolve(timer);
+    }, delay);
+  });
+}
