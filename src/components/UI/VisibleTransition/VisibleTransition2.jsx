@@ -56,7 +56,6 @@ class VisibleTransition2 extends Component {
   render() {
     const { className } = this.state;
     const { className: originClassName } = this.props;
-    console.log(className);
     if (!className) return null;
     return React.cloneElement(React.Children.only(this.props.children), {
       className: classnames(originClassName, className),

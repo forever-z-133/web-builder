@@ -22,7 +22,9 @@ class ActiveElement extends PureComponent {
   };
 
   onClickWindow = () => {
-    this.context.setActiveElement(null);
+    if (this.context.activeElement) {
+      this.context.setActiveElement(null);
+    }
   };
 
   render() {

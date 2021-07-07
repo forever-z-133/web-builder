@@ -42,6 +42,10 @@ class VisibleTransition extends Component {
     return false;
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
   async triggerAnimtion(props) {
     const { visible, duration = 500, enter, leave } = props;
     const { entering: e1, entered: e2, exiting: e3, exited: e4 } = this.defaultAnimation;
