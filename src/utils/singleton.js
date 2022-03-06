@@ -65,7 +65,7 @@ class SingletonRequest {
       this.queueList.push({ type, callback });
 
       // 接口完成的回调
-      const finish = (result) => {
+      const finish = result => {
         this.loadingMap[type] = false;
         this._removeQueue(type, true, result);
       };
@@ -78,7 +78,7 @@ class SingletonRequest {
 
   // 清掉某数据类的相关队列
   _removeQueue(type, trigger = false, result) {
-    this.queueList = this.queueList.filter((item) => {
+    this.queueList = this.queueList.filter(item => {
       if (item.type === type) {
         trigger && this._triggerQueueItem(type, item, result);
         return false;

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { LoadingOutlined, WarningOutlined } from '../Icon/Icon';
+// import { LoadingOutlined, WarningOutlined } from '../Icon/Icon';
 import { classnames } from '@/utils/utils';
 import './Image.scss';
 
@@ -53,8 +53,8 @@ class Image extends PureComponent {
           }
         )} />
         {status !== 'OK' && <div className="placeholder">
-          {ratio && status === 'LOADING' && <LoadingOutlined />}
-          {status === 'ERROR' && <WarningOutlined />}
+          {/* {ratio && status === 'LOADING' && <LoadingOutlined />}
+          {status === 'ERROR' && <WarningOutlined />} */}
         </div>}
         {children}
       </div>

@@ -1,6 +1,8 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
 .ui-icon {
   width: 1em;
-  height: 1em;
   font-size: $fsize;
   @include image-ratio(1);
 

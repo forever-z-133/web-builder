@@ -1,27 +1,7 @@
-import { Frame } from 'scenejs';
-
-/**
- * 设置元素 style，常用于拖拽等不改动 state 的渲染场景
- */
-export function css(dom, _styles) {
-  const styles = {};
-  Object.keys(_styles).forEach(k => {
-    const key = k.replace(/[A-Z]/g, '$0');
-    styles[key] = _styles[k];
-  });
-  const frame = new Frame(styles);
-  dom.style.cssText += frame.toCSS();
-}
-
 /**
  * 合并 className
  */
 export * as classnames from 'classnames';
-
-/**
- * 外放的 lodash 函数
- */
-export { merge, cloneDeep } from 'lodash';
 
 /**
  * 判断数据类型
