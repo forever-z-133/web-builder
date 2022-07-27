@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { classnames } from '@/utils/utils';
 import './Icon.scss';
 
-export * from '@ant-design/icons';
+// export * from '@ant-design/icons';
 
 class Icon extends PureComponent {
   render() {

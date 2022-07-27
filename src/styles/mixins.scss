@@ -1,12 +1,186 @@
-@import "common-scss-mixin";
-
 @function px($px) { @return $px * 1px; }
+
+@mixin rect-box($size: 1em) {
+  width: $size;
+  height: $size;
+  display: block;
+}
+
+@mixin disabled($grey: false) {
+  pointer-events: none;
+  user-select: none;
+  @if ($grey == true) {
+    filter: grayscale(1);
+  }
+}
+
+@mixin scroller($dir: '') {
+  @if ($dir == y) {
+    overflow-x: hidden;
+    overflow-y: auto;
+  } @else if ($dir == x) {
+    overflow-x: auto;
+    overflow-y: hidden;
+  } @else {
+    overflow: auto;
+  }
+  -webkit-overflow-scrolling: touch;
+}
+@mixin scroller-x() {
+  @include scroller(x);
+}
+@mixin scroller-y() {
+  @include scroller(y);
+}
+
+$image-ratio-children: '*';
+@mixin __ratioBefore($ratio: 1) {
+  &::before {
+    content: '';
+    display: block;
+    padding-top: $ratio * 100%;
+  }
+}
+@mixin ratio($ratio: 1) {
+  position: relative;
+  @include __ratioBefore($ratio);
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+@mixin image-ratio($ratio: 1, $fit: cover, $children: $image-ratio-children) {
+  position: relative;
+  @include __ratioBefore($ratio);
+  @each $child in $children {
+    & > #{$child} {
+      @include fit-cover($fit);
+    }
+  }
+}
+
+@mixin cover($type: absolute) {
+  position: $type;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@mixin fit-cover($fit: cover) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: $fit;
+}
+@mixin pos-hide() {
+  position: absolute;
+  left: -9999em;
+}
+
 $flex-grow-children: '.grow';
 $flex-shrink-children: '';
 $flex-column-grow-children: '.item', '.col';
-$float-row-children: '*';
-$inblock-row-children: '*';
-$child-gap-children: '';
-$child-gap-children-not: ':last-of-type';
-$input-file-children: '[type="file"]';
-$image-ratio-children: '*';
+@mixin flex-row-normal() {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-row($children: $flex-grow-children) {
+  @include flex-row-normal();
+  @include flex-row-child($children);
+}
+@mixin flex-row-child($children: $flex-grow-children) {
+  @each $child in $children {
+    & > #{$child} {
+      flex-grow: 1;
+    }
+    @each $el in $flex-shrink-children {
+      & > #{$el}:not(#{$child}) {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+@mixin flex-row-top() {
+  align-items: flex-start;
+}
+@mixin flex-row-middle() {
+  align-items: center;
+}
+@mixin flex-row-bottom() {
+  align-items: flex-end;
+}
+@mixin flex-row-stretch() {
+  align-items: stretch;
+}
+@mixin flex-row-left() {
+  justify-content: flex-start;
+}
+@mixin flex-row-center() {
+  justify-content: center;
+}
+@mixin flex-row-right() {
+  justify-content: flex-end;
+}
+@mixin flex-row-space() {
+  justify-content: space-between;
+}
+@mixin flex-row-wrap() {
+  flex-wrap: wrap;
+}
+@mixin flex-col-normal() {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-col($children: $flex-grow-children) {
+  @include flex-col-normal();
+  @include flex-col-child($children);
+}
+@mixin flex-col-child($children: $flex-grow-children) {
+  @each $child in $children {
+    & > #{$child} {
+      flex-grow: 1;
+    }
+    @each $el in $flex-shrink-children {
+      & > #{$el}:not(#{$child}) {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+@mixin flex-col-top() {
+  justify-content: flex-start;
+}
+@mixin flex-col-middle() {
+  justify-content: center;
+}
+@mixin flex-col-bottom() {
+  justify-content: flex-end;
+}
+@mixin flex-col-space() {
+  justify-content: space-between;
+}
+@mixin flex-col-left() {
+  align-items: flex-start;
+}
+@mixin flex-col-center() {
+  align-items: center;
+}
+@mixin flex-col-right() {
+  align-items: flex-end;
+}
+@mixin flex-center() {
+  @include flex-row-normal();
+  @include flex-row-center();
+}
+@mixin flex-column($column: 2, $children: $flex-column-grow-children) {
+  display: flex;
+  @each $child in $children {
+    & > #{$child} {
+      flex-grow: 1;
+      flex-basis: (100 / $column) * 1%;
+    }
+  }
+}
