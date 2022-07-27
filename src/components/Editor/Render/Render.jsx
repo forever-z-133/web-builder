@@ -25,7 +25,7 @@ class Render extends PureComponent {
       );
     }
     return null;
-  }
+  };
 
   render() {
     const { layout } = this.props;

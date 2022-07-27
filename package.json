@@ -1,40 +1,42 @@
 {
   "name": "forever-builder",
   "version": "0.0.1",
-  "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "axios": "^0.21.1",
-    "classnames": "^2.3.1",
-    "lodash": "^4.17.21",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "scenejs": "^1.5.0",
-    "uuid": "^8.3.2"
-  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "lint": "./node_modules/.bin/eslint --ext js,jsx, ./",
-    "lint:fix": "./node_modules/.bin/eslint --fix --ext js,jsx, ./",
-    "analyze": "source-map-explorer build/static/js/main.*"
+    "lint": "./node_modules/.bin/eslint --ext js,ts,jsx,tsx ./",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ext js,ts,jsx,tsx ./",
+    "test": "./node_modules/.bin/jest --coverage",
+    "analyze": "source-map-explorer build/static/js/*.*"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.3.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.45",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
     "common-scss-mixin": "^1.0.15",
-    "eslint-plugin-react": "^7.24.0",
-    "react-app-rewired": "^2.1.8",
-    "react-scripts": "4.0.3",
-    "sass": "^1.34.1"
+    "eslint-plugin-react": "^7.30.1",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "5.0.1",
+    "sass": "^1.54.0",
+    "source-map-explorer": "^2.5.2",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.7.4"
   },
   "browserslist": {
     "production": [
@@ -48,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "./"
+  "license": "MIT"
 }

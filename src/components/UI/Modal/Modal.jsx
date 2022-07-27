@@ -38,7 +38,7 @@ class CLModal extends Component {
   onAnimationEnd = () => {
     if (this.state.className === 'slideOut') document.body.removeChild(this.state.el);
     this.setState({ isAniming: false });
-  }
+  };
 
   Modal = () => {
     const { className, isAniming } = this.state;

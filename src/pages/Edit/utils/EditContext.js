@@ -1,4 +1,4 @@
-import React, { Component, createContext } from "react";
+import React, { Component, createContext } from 'react';
 
 export const EditContext = createContext({});
 
@@ -36,7 +36,7 @@ export class EditProvider extends Component {
     this.setState({ styleRenderType }, () => {
       typeof callback === 'function' && callback();
     });
-  }
+  };
 
   render() {
     const { mode, layout, activeElement, styleRenderType } = this.state;

@@ -50,7 +50,7 @@ class StyleRender extends PureComponent {
       while (dom.firstChild) dom.removeChild(dom.firstChild);
       dom.appendChild(document.createTextNode(styleString));
     }
-  }
+  };
 
   // 将整个组件数据转化为 style 字符串
   convertDataToStyleString = data => {
@@ -60,7 +60,7 @@ class StyleRender extends PureComponent {
       str += items.map(e => this._toStyleString(e, data.id));
     }
     return str;
-  }
+  };
 
   // 将单条数据转为 style 字符串
   _toStyleString = (data, parentId) => {
@@ -74,7 +74,7 @@ class StyleRender extends PureComponent {
     });
     result = result.join('; ');
     return `${selector} { ${result} }`;
-  }
+  };
 
   render() {
     const { data } = this.props;

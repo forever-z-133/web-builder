@@ -44,11 +44,11 @@ class Image extends PureComponent {
         {ratio && <div className="ratio-temp" style={{ paddingTop: `${ratio * 100}%` }}></div>}
         <img src={src} ref={getImageRef} {...(
           status === 'LOADING' ? {
-            className: "img-temp",
+            className: 'img-temp',
             onLoad,
             onError,
           } : {
-            className: "img",
+            className: 'img',
             alt,
           }
         )} />

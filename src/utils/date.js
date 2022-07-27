@@ -196,7 +196,7 @@ export function TimeCount() {
     clearInterval(timer);
     return this;
   }
-  return { start: start, stop: stop };
+  return { start, stop };
 }
 
 /**

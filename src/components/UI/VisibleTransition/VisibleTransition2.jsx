@@ -8,7 +8,7 @@ class VisibleTransition2 extends Component {
     needAnimate: false,
     lastVisible: false,
   };
-  
+
   timer = null;
 
   static getDerivedStateFromProps(props, state) {

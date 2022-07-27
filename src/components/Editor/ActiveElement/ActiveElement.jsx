@@ -29,7 +29,7 @@ class ActiveElement extends PureComponent {
 
   render() {
     return (
-      <div onClick={this.onClick} style={{ ...(this.context.activeElement?.id === this.props.data?.id ? { color: 'black' }  : undefined) }}>
+      <div onClick={this.onClick} style={{ ...(this.context.activeElement?.id === this.props.data?.id ? { color: 'black' } : undefined) }}>
         {this.props.children}
       </div>
     );

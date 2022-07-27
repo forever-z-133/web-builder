@@ -24,7 +24,7 @@ class FlipTransition extends PureComponent {
     this.props.ref && this.props.ref(ref);
     if (!ref) return;
     this.dom = ref;
-  }
+  };
 
   getSnapshotBeforeUpdate() {
     this._first();

@@ -40,7 +40,7 @@ class Stage extends PureComponent {
     if (useMargin) {
       Object.assign(style, { marginTop: top, marginLeft: left });
     } else {
-      transform.push(`translate(-50%, -50%)`);
+      transform.push('translate(-50%, -50%)');
     }
 
     // 元素尺寸
@@ -50,7 +50,7 @@ class Stage extends PureComponent {
     Object.assign(style, { transform: transform.join(' ') });
     style.scale = scale;
     return style;
-  }
+  };
 
   Children = _props => {
     const { children, ...props } = _props;

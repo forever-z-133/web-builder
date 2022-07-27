@@ -1,18 +1,46 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NoMatch from './components/Layouts/NoMatch/NoMatch';
+
+const LazyComponent = children => {
+  const LazyComponent = lazy(() => children);
+  return (
+    <Suspense callback={<div>loading...</div>}><LazyComponent /></Suspense>
+  );
+};
+
+const NormalComponent = Component => {
+  return <Component />;
+};
+
+const routeConfig = [
+  {
+    path: '/',
+    element: LazyComponent(import('@/pages/Dashboard/Dashboard')),
+  },
+  {
+    path: '/edit',
+    element: LazyComponent(import('@/pages/Edit/Edit')),
+  },
+  {
+    path: '*',
+    element: NormalComponent(NoMatch),
+  },
+];
 
 function App() {
   return (
-    <Router basename="/">
-      <Suspense fallback={<div>loading...</div>}>
-        <Switch>
-          <Route exact path="/" component={lazy(() => import('@/pages/Dashboard/Dashboard'))} />
-          <Route path="/edit" component={lazy(() => import('@/pages/Edit/Edit'))} />
-          <Route path="*" component={NoMatch} />
-        </Switch>
-      </Suspense>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {routeConfig.map(route => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={route.element}
+          />
+        ))}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

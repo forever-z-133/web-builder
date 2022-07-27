@@ -12,9 +12,9 @@ class EditLeftSide extends Component {
 
   onClick = () => {
     const arr = [
-      "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-      "http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg",
-      "http://xx",
+      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      'http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg',
+      'http://xx',
     ];
     this.setState({ src: arr[randomInt(arr.length)] });
   };
@@ -32,7 +32,7 @@ class EditLeftSide extends Component {
     if (!activeElement) return;
     activeElement.css.fontSize = `${randomInt(10, 20)}px`;
     this.context.setActiveElement(activeElement);
-  }
+  };
 
   changeVisible = key => ()=> {
     this.setState({ [key]: !this.state[key] });
@@ -47,7 +47,7 @@ class EditLeftSide extends Component {
         <button onClick={this.onClick3}>flip 动画</button>
         <button onClick={this.onClick4}>修改激活元素字号</button>
         <FlipTransition>
-          <div className={classnames('box', { 'active': this.state.active })}></div>
+          <div className={classnames('box', { active: this.state.active })}></div>
         </FlipTransition>
         <Image src={this.state.src} ratio={this.state.ratio}></Image>
         <div>

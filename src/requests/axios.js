@@ -42,7 +42,7 @@ function request(method, url, params, options = {}) {
         method: 'POST',
         data: { ...params },
         otherParams: options
-      }).catch(() => { });
+      }).catch(() => {});
     default:
       return axios({ ...opts, ...options }).catch(() => { });
   }

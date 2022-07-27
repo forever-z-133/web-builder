@@ -1,5 +1,5 @@
 import SingletonRequest from '@/utils/singleton';
-import request from './request';
+import request from './axios';
 
 // 单例式请求，回调到处放，排队等接口
 const singleton = SingletonRequest.getInstance();

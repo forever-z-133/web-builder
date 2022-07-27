@@ -1,9 +1,9 @@
 /**
  * 单例式请求 SingletonRequest
- * 
+ *
  * 比如，多组件或多页面都有同个异步过程，
  * 则可对回调进行排队，在该过程完成后再运行。
- * 
+ *
  * 举个例子：
  * const _getToken = () => new Promise(resolve => setTimeout(() => resolve('result'), 1e3)); // 原函数
  * SingletonRequest.add('getToken', _getToken); // 加入配置
@@ -65,7 +65,7 @@ class SingletonRequest {
       this.queueList.push({ type, callback });
 
       // 接口完成的回调
-      const finish = (result) => {
+      const finish = result => {
         this.loadingMap[type] = false;
         this._removeQueue(type, true, result);
       };
@@ -78,7 +78,7 @@ class SingletonRequest {
 
   // 清掉某数据类的相关队列
   _removeQueue(type, trigger = false, result) {
-    this.queueList = this.queueList.filter((item) => {
+    this.queueList = this.queueList.filter(item => {
       if (item.type === type) {
         trigger && this._triggerQueueItem(type, item, result);
         return false;
