@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { baseUrl } from '@/config/config';
-import { getLocal } from '@/utils/utils';
+import { getLocal } from '@/utils/common';
 
 /**
  * 公共请求方法

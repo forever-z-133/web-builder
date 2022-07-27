@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 // import { LoadingOutlined, WarningOutlined } from '../Icon/Icon';
-import { classnames } from '@/utils/utils';
+import { classnames } from '@/utils/common';
 import './Image.scss';
 
 class Image extends PureComponent {
@@ -44,11 +44,11 @@ class Image extends PureComponent {
         {ratio && <div className="ratio-temp" style={{ paddingTop: `${ratio * 100}%` }}></div>}
         <img src={src} ref={getImageRef} {...(
           status === 'LOADING' ? {
-            className: "img-temp",
+            className: 'img-temp',
             onLoad,
             onError,
           } : {
-            className: "img",
+            className: 'img',
             alt,
           }
         )} />

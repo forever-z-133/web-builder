@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { classnames, sleep } from '@/utils/utils';
+import { classnames, sleep } from '@/utils/common';
 
 class VisibleTransition2 extends Component {
   state = {

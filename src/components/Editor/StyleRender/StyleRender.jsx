@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { EditContext } from '@/pages/Edit/utils/EditContext';
-import { hyphenate } from '@/utils/utils';
+import { hyphenate } from '@/utils/common';
 
 class StyleRender extends PureComponent {
   static contextType = EditContext;

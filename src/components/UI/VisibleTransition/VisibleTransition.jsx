@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { sleep } from '@/utils/utils';
+import { sleep } from '@/utils/common';
 
 class VisibleTransition extends Component {
   defaultAnimation = {

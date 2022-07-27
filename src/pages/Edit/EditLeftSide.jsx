@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Icon, FlipTransition, VisibleTransition, Stage, Modal } from '@/components/UI';
 import { EditContext } from './utils/EditContext';
-import { classnames, randomInt } from '@/utils/utils';
+import { classnames, randomInt } from '@/utils/common';
 import Render from '@/components/Editor/Render/Render';
 import VisibleTransition2 from '@/components/UI/VisibleTransition/VisibleTransition2';
 

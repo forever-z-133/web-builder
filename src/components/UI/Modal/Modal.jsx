@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { classnames } from '@/utils/utils';
+import { classnames } from '@/utils/common';
 import './Modal.scss';
 
 class CLModal extends Component {

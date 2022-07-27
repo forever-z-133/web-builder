@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { classnames } from '@/utils/utils';
+import { classnames } from '@/utils/common';
 import './Icon.scss';
 
 // export * from '@ant-design/icons';
