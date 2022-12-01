@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class EditMainArea extends Component {
-  render() {
+  render () {
     return (
       <>
       </>
-    );
+    )
   }
 }
-export default EditMainArea;
+export default EditMainArea

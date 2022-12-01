@@ -1,7 +1,7 @@
-import uuid from 'uuid';
-import merge from 'lodash/merge';
+import uuid from 'uuid'
+import merge from 'lodash/merge'
 
-export function init(data = {}) {
+export function init (data = {}) {
   const defaultData = {
     id: `image-${uuid()}`,
     type: 'image',
@@ -9,6 +9,6 @@ export function init(data = {}) {
     content: '',
     props: {},
     css: {}
-  };
-  return merge(data, defaultData);
+  }
+  return merge(data, defaultData)
 }

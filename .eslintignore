@@ -1,7 +1,0 @@
-node_modules/
-build/
-public/
-*.scss
-*.json
-*.md
-LICENSE

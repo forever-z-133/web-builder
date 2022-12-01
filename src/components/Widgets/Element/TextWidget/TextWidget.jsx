@@ -1,14 +1,10 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
 
 class TextWidget extends PureComponent {
-  render() {
-    const { data } = this.props;
-    const { content } = data;
-    return <span>{content}</span>;
+  render () {
+    const { data } = this.props
+    const { content } = data
+    return <span>{content}</span>
   }
 }
-TextWidget.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-export default TextWidget;
+export default TextWidget

@@ -1,5 +1,5 @@
 export default {
   baseUrl: ''
-};
+}
 
-export * from './const';
+export * from './const'

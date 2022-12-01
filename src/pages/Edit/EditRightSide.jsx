@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class EditRightSide extends Component {
-  render() {
+  render () {
     return (
       <>
       </>
-    );
+    )
   }
 }
-export default EditRightSide;
+export default EditRightSide

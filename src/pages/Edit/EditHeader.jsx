@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class EditHeader extends Component {
-  render() {
+  render () {
     return (
       <>
       </>
-    );
+    )
   }
 }
-export default EditHeader;
+export default EditHeader

@@ -1,4 +1,4 @@
-function PureLayout(props) {
-  return props.children;
+function PureLayout (props) {
+  return props.children
 }
-export default PureLayout;
+export default PureLayout

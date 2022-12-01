@@ -1,8 +1,8 @@
 export class PageService {
-  pageCode = '';
-  getComponentService(compId) {}
-  getComponentState(compId) {}
-  setComponentState(compId) {}
-  setParamVariable() {}
-  getParamVariable() {}
+  pageCode = ''
+  getComponentService () {}
+  getComponentState () {}
+  setComponentState () {}
+  setParamVariable () {}
+  getParamVariable () {}
 }

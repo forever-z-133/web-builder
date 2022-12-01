@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
-import { Image, Icon, FlipTransition, VisibleTransition, Stage, Modal } from '@/components/UI';
-import { EditContext } from './utils/EditContext';
-import { classnames, randomInt } from '@/utils/common';
-import Render from '@/components/Editor/Render/Render';
-import VisibleTransition2 from '@/components/UI/VisibleTransition/VisibleTransition2';
+import React, { Component } from 'react'
+import { Image, FlipTransition, VisibleTransition, Stage, Modal } from '@/components/UI/index'
+import { EditContext } from './utils/EditContext'
+import { classnames, randomInt } from '@/utils/common'
+import Render from '@/components/Editor/Render/Render'
+import VisibleTransition2 from '@/components/UI/VisibleTransition/VisibleTransition2'
 
 class EditLeftSide extends Component {
-  static contextType = EditContext;
+  static contextType = EditContext
 
-  state = { src: '', ratio: 1 / 2, active: false, visible: false, modal: false };
+  state = { src: '', ratio: 1 / 2, active: false, visible: false, modal: false }
 
   onClick = () => {
     const arr = [
       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       'http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg',
-      'http://xx',
-    ];
-    this.setState({ src: arr[randomInt(arr.length)] });
-  };
+      'http://xx'
+    ]
+    this.setState({ src: arr[randomInt(arr.length)] })
+  }
 
   onClick2 = () => {
-    this.setState({ ratio: 2 / randomInt(2, 5) });
-  };
+    this.setState({ ratio: 2 / randomInt(2, 5) })
+  }
 
   onClick3 = () => {
-    this.setState({ active: !this.state.active });
-  };
+    this.setState({ active: !this.state.active })
+  }
 
   onClick4 = () => {
-    const { activeElement } = this.context;
-    if (!activeElement) return;
-    activeElement.css.fontSize = `${randomInt(10, 20)}px`;
-    this.context.setActiveElement(activeElement);
-  };
+    const { activeElement } = this.context
+    if (!activeElement) return
+    activeElement.css.fontSize = `${randomInt(10, 20)}px`
+    this.context.setActiveElement(activeElement)
+  }
 
-  changeVisible = key => ()=> {
-    this.setState({ [key]: !this.state[key] });
-  };
+  changeVisible = key => () => {
+    this.setState({ [key]: !this.state[key] })
+  }
 
-  render() {
+  render () {
     return (
       <div className="edit-left-side">
         <p>编辑页</p>
@@ -52,7 +52,6 @@ class EditLeftSide extends Component {
         <Image src={this.state.src} ratio={this.state.ratio}></Image>
         <div>
           <span>图标</span>
-          <Icon src="http://img.daimg.com/uploads/allimg/210516/1-210516230053.jpg" />
         </div>
         <div>
           <span>渲染组件</span>
@@ -75,7 +74,7 @@ class EditLeftSide extends Component {
           <div style={{ border: '1px solid red' }}></div>
         </Stage>
       </div>
-    );
+    )
   }
 }
-export default EditLeftSide;
+export default EditLeftSide

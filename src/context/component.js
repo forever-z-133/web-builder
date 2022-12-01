@@ -1,4 +1,4 @@
 export class GlobalService {
-  compId = '';
-  state = {};
+  compId = ''
+  state = {}
 }

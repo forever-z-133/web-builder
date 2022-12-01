@@ -1,1 +1,1 @@
-export const TEMP_IMAGE = 'https://picsum.photos/200/150';
+export const TEMP_IMAGE = 'https://picsum.photos/200/150'
